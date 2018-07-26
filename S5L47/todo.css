@@ -1,0 +1,21 @@
+body {
+    background: orange;
+}
+
+li {
+    border: 2px solid red;
+}
+
+#fred {
+    color: white;
+}
+
+#john {
+    background: black;
+    color: green;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: yellow;
+}

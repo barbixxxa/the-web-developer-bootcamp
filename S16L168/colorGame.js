@@ -20,9 +20,9 @@ for (var i = 0; i < squares.length; i++) {
     //click listener
     squares[i].addEventListener("click", function () {
         if (this.style.backgroundColor === pickedColor) {
-            alert("r");
+            alert("WIN");
         } else {
-            alert("w");
+            this.style.visibility = "hidden";
         }
     });
 }

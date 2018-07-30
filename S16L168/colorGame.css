@@ -1,8 +1,33 @@
 body {
     background-color: #232323;
+    margin: 0;
+    font-family: "Montserrat", "Avenir";
+}
+
+button {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    color: steelblue;
+    font-size: inherit;
+    transition: all 0.3s;
 }
 
 h1 {
+    text-align: center;
+    line-height: 1.1;
+    font-weight: normal;
+    color: white;
+    background: steelblue;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+button:hover, .selected {
+    background: steelblue;
     color: white;
 }
 
@@ -12,14 +37,16 @@ h1 {
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
+    border-radius: 15%;
+    transition: background 0.6s;
 }
 
-.selected {
-    background: blue;
+#colorDisplay {
+    font-size: 200%;
 }
 
 #container {
-    margin: 0 auto;
+    margin: 20px auto;
     max-width: 600px;
 }
 
@@ -27,4 +54,9 @@ h1 {
     background-color: white;
     height: 30px;
     text-align: center
+}
+
+#message {
+    display: inline-block;
+    width: 20%;
 }

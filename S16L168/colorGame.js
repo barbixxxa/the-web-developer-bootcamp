@@ -56,7 +56,7 @@ function changeSquaresColors() {
 }
 
 function reset(num) {
-    title.style.backgroundColor = "#232323";
+    title.style.backgroundColor = "steelblue";
     messageDisplay.textContent = "";
     resetButton.textContent = "New Colors";
     colors = generateRandomColors(num);

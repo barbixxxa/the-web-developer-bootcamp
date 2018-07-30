@@ -1,38 +1,27 @@
 var numSquares = 6;
-var colors = generateRandomColors(numSquares);
+var colors;
+var pickedColor;
 var squares = document.querySelectorAll(".square");
-var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var title = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
 var modeButtons = document.querySelectorAll(".mode");
 
-for (var i = 0; i < modeButtons.length; i++) {
-    modeButtons[i].addEventListener("click", function () {
-        modeButtons[0].classList.remove("selected");
-        modeButtons[1].classList.remove("selected");
-        this.classList.add("selected");
-
-        this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
-        reset();
-    });
-
-}
-
-colorDisplay.textContent = pickedColor;
-
-changeSquaresColors();
+init();
 
 resetButton.addEventListener("click", function () {
     reset();
 });
 
-function changeSquaresColors() {
-    for (var i = 0; i < squares.length; i++) {
-        //add colors to squares
-        squares[i].style.backgroundColor = colors[i];
+function init() {
+    setUpModeButtons();
+    setUpSquare();
+    reset();
+}
 
+function setUpSquare() {
+    for (var i = 0; i < squares.length; i++) {
         //click listener
         squares[i].addEventListener("click", function () {
             if (this.style.backgroundColor === pickedColor) {
@@ -48,6 +37,20 @@ function changeSquaresColors() {
     }
 }
 
+function setUpModeButtons() {
+    for (var i = 0; i < modeButtons.length; i++) {
+        modeButtons[i].addEventListener("click", function () {
+            modeButtons[0].classList.remove("selected");
+            modeButtons[1].classList.remove("selected");
+            this.classList.add("selected");
+
+            this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
+            reset();
+        });
+
+    }
+}
+
 function reset() {
     title.style.backgroundColor = "steelblue";
     messageDisplay.textContent = "";
@@ -55,7 +58,6 @@ function reset() {
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
-    changeSquaresColors();
     for (var i = 0; i < squares.length; i++) {
         if (colors[i]) {
             squares[i].style.display = "block";

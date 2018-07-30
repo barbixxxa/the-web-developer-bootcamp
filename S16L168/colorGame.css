@@ -13,6 +13,7 @@ button {
     color: steelblue;
     font-size: inherit;
     transition: all 0.3s;
+    outline: none;
 }
 
 h1 {

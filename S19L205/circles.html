@@ -9,14 +9,11 @@
     <link rel="stylesheet" href="assets/css/circles.css">
     <script src="assets/js/lib/paper-full.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
-        var radius = 10;
-        var myCircle;
-
-        for(var i=0; i<1000; i+=100){
-            for(var j=0; j<1000; j+=100){
-                var myCircle = new Path.Circle(new Point(i, j),radius);
-                myCircle.fillColor = 'purple';
-            }
+        function onKeyDown(event){
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var randomPoint = Point.random();
+            var point = maxPoint * randomPoint;
+            new Path.Circle(point, 10).fillColor = "orange";
         }
     </script>
 </head>

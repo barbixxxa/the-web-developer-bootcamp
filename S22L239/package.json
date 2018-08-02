@@ -1,0 +1,22 @@
+{
+  "name": "eras22l39",
+  "version": "1.0.0",
+  "description": "express routing assignment",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theeam/the-web-developer-bootcamp.git"
+  },
+  "author": "theeam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theeam/the-web-developer-bootcamp/issues"
+  },
+  "homepage": "https://github.com/theeam/the-web-developer-bootcamp#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

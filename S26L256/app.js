@@ -17,6 +17,10 @@ app.get("/campgrounds", function (req, res) {
     res.render("campgrounds", { campgrounds: campgrounds });
 });
 
+app.post("/campgrounds", function (req, res) {
+
+});
+
 app.listen(3000, function () {
     console.log("Running on: 3000");
 });

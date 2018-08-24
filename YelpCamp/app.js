@@ -1,20 +1,17 @@
 var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
-    mongoose = require("mongoose");
+    mongoose = require("mongoose"),
+    Campground = require("./models/campground"),
+    seedDB = require("./seeds");
 
+seedDB();
 mongoose.connect("mongodb://localhost/yelp_camp");
-app.use(bodyParser.urlencoded({ extended: true })); 2626
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 app.set("view engine", "ejs");
-
-//schema setup
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
 
 app.get("/", function (req, res) {
     res.render("landing");
@@ -26,7 +23,9 @@ app.get("/campgrounds", function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render("index", { campgrounds: campgrounds });
+            res.render("index", {
+                campgrounds: campgrounds
+            });
         }
     });
 });
@@ -45,11 +44,12 @@ app.post("/campgrounds", function (req, res) {
     // https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg
     // https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg
     // https://www.reserveamerica.com/webphotos/NH/pid270015/0/540x360.jpg
-    
+
 
 
     Campground.create(
-        newCampground, function (err, newCampground) {
+        newCampground,
+        function (err, newCampground) {
             if (err) {
                 console.log(err);
             } else {
@@ -67,7 +67,9 @@ app.get("/campgrounds/:id", function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render("show", { campground: foundCampground });
+            res.render("show", {
+                campground: foundCampground
+            });
         }
     });
 });
